@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Login | movies </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <style>
+       /* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+     </style>
+  </head>
+
+  <body>
+    <P>Email: admin@gmail.com password: admin</P>
+    <div class="container">
+      <div class="popup">
+        <span class="popuptext" id="myPopup">Check your credentials</span>
+      </div>
+      <form action="#">
+        <div class="title">Login</div>
+        <div class="input-box underline">
+          <input id="email" type="text" placeholder="Email is admin@gmail.com " required>
+          <div class="underline"></div>
+        </div>
+        <div class="input-box">
+          <input id="password" type="password" placeholder="Password is admin" required>
+          <div class="underline"></div>
+        </div>
+        <div class="input-box button">
+          <input type="button" id="login" name="" value="Continue" onclick="logmein()">
+        </div>
+      </form>
+        
+    </div>
+    <script>
+      async function logmein(){
+
+        var email= document.getElementById("email").value;
+        var password =document.getElementById("password").value;
+
+        if (email == "admin@gmail.com" && password == "admin"){
+          //window.open("http://moviesite.whitelabelwriting.com/dashboard/index.html","_self");
+          window.open("../dashboard/index.html","_self");
+
+        }else{
+          
+          var popup = document.getElementById("myPopup");        
+          popup.classList.toggle("show");
+
+        }
+      }       
+       
+    </script>
+  </body>
+</html>

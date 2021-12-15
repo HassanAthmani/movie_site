@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Login | movies </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <style>
+       /* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+     </style>
+  </head>
+
+  <body> 
+
+    <div class="container">
+
+      <div class="popup">
+        <span  class="popuptext" id="myPopup2">User already exists</span>
+      </div>
+      
+      <div class="popup">
+        <span class="popuptext" id="myPopup">Both passwords must be the same</span>
+      </div>
+      <form action="#">
+        <div class="title">Register</div>
+        <div class="input-box underline">
+          <input id="email" type="text" placeholder="Enter Your Email">
+          <div class="underline"></div>
+        </div>
+        <div class="input-box">
+          <input id="password" type="password" placeholder="Enter Your Password">
+          <div class="underline"></div>
+        </div>
+        <div class="input-box">
+          <input id="password2" type="password" placeholder="Renter Your Password">
+          <div class="underline"></div>
+        </div>
+        <div class="input-box button">
+          <input id="reg" type="button" name="" value="Register" onclick="runner()">
+        </div>
+        <div class="input-box button">
+          <a href="../login/login.html">
+            <input id="login" type="button" name="" value="Login">
+          </a>
+          
+        </div>
+      </form>        
+    </div>
+
+    <script>
+
+      async function runner(){
+        var email= document.getElementById("email").value;
+        var password =document.getElementById("password").value;
+        var password2 = document.getElementById("password2").value;
+      
+      if (password == password2){
+
+        const response = await axios({
+    method: "get",
+    url: 'http://127.0.0.1:5000/register/?email='+email+'&password='+password,
+    data: "",
+    headers: { "Content-Type": "multipart/form-data","Access-Control-Allow-Origin":"*" },
+        
+  },{ crossdomain: true }).then(function (response) {
+    //handle success
+    console.log(response.data);
+    
+    if (response.data == "0"){
+      var popup = document.getElementById("myPopup2");        
+        popup.classList.toggle("show");
+      console.log("User exist")
+    }else{
+      console.log("User does not exist exist")
+    }
+
+  }).catch(function (response) {
+    //handle error
+    console.log(response);
+  });  
+
+
+      }else{
+        //document.getElementById("myPopup").value="Both passwords must be the same";
+        var popup = document.getElementById("myPopup");        
+        popup.classList.toggle("show");
+      }
+    }
+      
+    </script>
+  </body>
+</html>

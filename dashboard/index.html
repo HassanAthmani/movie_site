@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Site</title>
+</head>
+<body>
+
+    <div class="header ">
+
+        <div class="nav maxwidthwrapper">
+
+        
+
+        <div class="logo boldtitle">
+            IMAX movies
+        </div>
+
+        <div>
+            <button class="bluebutton" onclick="openPhoneModal()" >
+                Add phone number
+            </button>
+        </div>
+
+        </div>
+    </div>
+
+    
+
+    <div class="maincontent maxwidthwrapper">
+
+        <div>
+            <div class="bigtitle">
+
+            </div>
+        </div>
+
+        <ul class="gridlayout">
+
+            <li>
+                <div >
+                    <img class="image" src="1.jpg" alt="">
+                </div>
+
+                <div class="title">
+                    Gardians of the Galaxy II
+                </div>
+            </li>
+
+            <li>
+                <div >
+                    <img class="image" src="2.jpg" alt="">
+                </div>
+
+                <div class="title">
+                    Avengers Endgame
+                </div>
+            </li>
+
+
+            <li>
+                <div >
+                    <img class="image" src="3.jpg" alt="">
+                </div>
+
+                <div class="title">
+                    Avengers Infinity War
+                </div>
+            </li>
+
+
+
+            <li>
+                <div >
+                    <img class="image" src="5.jpg" alt="">
+
+                </div>
+
+                <div class="title">
+                    Gardians of the Galaxy
+                </div>
+            </li>
+
+
+
+            <li>
+                <div >
+                    <img class="image" src="6.jpg" alt="">
+
+                </div>
+
+                <div class="title">
+                    Ice Age 3
+                </div>
+            </li>
+
+
+
+            <li>
+                <div >
+                    <img class="image" src="7.jpg" alt="">
+
+                </div>
+
+                <div class="title">
+                    Kong
+                </div>
+            </li>
+
+            <li>
+                <div >
+                    <img class="image" src="8.jpg" alt="">
+
+                </div>
+
+                <div class="title">
+                    Sipderman Homecoming
+                </div>
+            </li>
+
+            <li>
+                <div >
+                    <img class="image" src="9.jpg" alt="">
+
+                </div>
+
+                <div class="title">
+                    Zootopia
+                </div>
+            </li>
+            <li>
+                <div >
+                    <img class="image" src="10.jpg" alt="">
+
+                </div>
+
+                <div class="title">
+                    Star Wars
+                </div>
+            </li>
+            <li>
+                <div >
+                    <img class="image" src="12.jpg" alt="">
+
+                </div>
+
+                <div class="title">
+                    Finding Nemo
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="modal" id="phoneModal" >
+
+        <div class="form">
+
+            <div class="boldtitle">
+                Add phone number
+            </div>
+
+            <div>
+                <input type="phone" id="phoneNumber" placeholder="You Phone  number"> </input>
+            </div>
+
+            <div class="formbuttons">
+                
+
+                <div class="button" onclick="closePhoneModal()">
+                    Cancel
+                </div>
+
+                <button onclick="savePhoneNumber()" class="bluebutton button" >
+                    Save
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+    
+</body>
+</html>
+
+<script>
+
+    function openPhoneModal(){
+
+        let modal=document.getElementById('phoneModal');
+
+        modal.style.display='flex';
+
+
+    }
+
+    function closePhoneModal(){
+
+    let modal=document.getElementById('phoneModal');
+
+    modal.style.display='none';
+
+
+    }
+
+    function savePhoneNumber(){
+
+    let phoneNumber=document.getElementById('phoneNumber').value;
+    
+    
+
+    closePhoneModal();
+
+    }
+
+
+
+</script>
+
+<style>
+
+    html body{
+        max-width: 100vw;
+        overflow-x: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .maxwidthwrapper{
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+
+    }
+
+    .header .nav{
+        padding: 8px 18px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .header{
+        border-bottom: 1px solid rgb(240, 240, 240);
+    }
+
+    .bluebutton{
+        color: white;
+        background: rgb(0, 76, 255);
+        border: none;
+        border-radius: 12px;
+        padding: 8px 12px;
+    }
+
+    .form .formbuttons{
+        display: flex;
+        align-items: center;
+        padding: 8px 0;
+
+    }
+
+    .boldtitle{
+        font-weight: bold;
+        margin-bottom: 6px;
+    }
+
+    .formbuttons .bluebutton{
+        margin-right: 6px;
+    }
+
+    .formbuttons .button{
+        width: 50%;
+        text-align: center;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 12px;
+        border: none;
+        padding: 8px 12px;
+
+    }
+
+    .maincontent .gridlayout{
+        display: grid;
+        grid-column-gap: 50px;
+        grid-template-columns: auto auto auto;
+        grid-gap: 20px 20px;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .maincontent ul{
+        list-style-type: none;
+    }
+
+    input{
+        border-radius: 12px;
+        padding: 8px 8px;
+        border: none;
+        border: 2px solid rgb(219, 219, 219);
+        margin: 6px 0;
+        
+    }
+
+    .modal{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        max-height: 100vh;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.602);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .modal .form{
+        background: white;
+        padding:1rem 12px;
+        border-radius: 12px;
+        max-width: 300px;
+        
+    }
+
+    .maincontent .image{
+        width: 100%;
+        height: 16rem;
+        background: rgb(236, 236, 236);
+        border-radius: 8px;
+        overflow: hidden;
+        object-fit: cover;
+
+    }
+
+
+
+    .maincontent .gridlayout li .title{
+        font-weight: 500;
+        text-transform: capitalize;
+        padding: 6px 0;
+    }
+
+
+    @media (max-width:800px) {
+        .maincontent .gridlayout{
+        display: grid;
+        grid-column-gap: 10px;
+        grid-template-columns: auto auto auto;
+        grid-gap: 20px 20px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    }
+
+
+    @media (max-width:300px) {
+        .maincontent .gridlayout{
+        display: grid;
+        grid-column-gap: 10px;
+        grid-template-columns: auto auto auto;
+        grid-gap: 20px 20px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    }
+    
+</style>
